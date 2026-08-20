@@ -1,4 +1,4 @@
-# Azure AI Foundry private network stack (Terraform)
+# Microsoft Foundry private network stack (Terraform)
 
 Terraform conversion of the sibling `foundry-bicep` deployment. The Bicep source remains unchanged. This root creates the resource group and the complete hub/spoke Foundry environment; `add-project/` and `tool-servers/azure-function-server/` are separate Terraform states.
 
