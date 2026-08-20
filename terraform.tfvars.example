@@ -1,0 +1,44 @@
+location = "australiaeast"
+prefix   = "aifoundrytf"
+
+# Keep empty for a deterministic subscription/resource-group-derived suffix.
+random_suffix      = ""
+resource_group_name = ""
+
+tags = {
+  lab        = "foundry-terraform"
+  managedBy  = "terraform"
+  owner      = "replace-me"
+  costCenter = "lab"
+}
+
+hub_vnet_prefix   = "10.100.0.0/23"
+vm_vnet_prefix    = "10.10.10.0/23"
+aiapp_vnet_prefix = "10.10.20.0/23"
+
+firewall_enabled           = true
+firewall_sku_tier          = "Basic"
+bastion_enabled            = true
+vm_enabled                 = true
+container_registry_enabled = true
+developer_ip_cidr          = ""
+
+vm_size        = "Standard_D8s_v5"
+admin_username = "azureadmin"
+# Supply TF_VAR_admin_password in the environment; do not put it in this file.
+
+ai_services_name_base          = "aiservices"
+ai_search_name_base            = "aisearch"
+cosmosdb_name_base             = "cosmosdb"
+storage_name_base              = "foundrystg"
+project_name                   = "project"
+project_description            = "A project for the AI Foundry account with network secured deployed Agent"
+project_display_name           = "network secured agent project"
+project_capability_host_name   = "caphostproj"
+network_injection_enabled      = true
+
+model_name     = "gpt-4o-mini"
+model_format   = "OpenAI"
+model_version  = "2024-07-18"
+model_sku_name = "GlobalStandard"
+model_capacity = 30

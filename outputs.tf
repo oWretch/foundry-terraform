@@ -1,0 +1,17 @@
+output "resource_group_name" { value = azurerm_resource_group.main.name }
+output "suffix" { value = local.suffix }
+output "hub_vnet_id" { value = azurerm_virtual_network.hub.id }
+output "aiapp_vnet_id" { value = azurerm_virtual_network.aiapp.id }
+output "firewall_private_ip" { value = var.firewall_enabled ? azurerm_firewall.main[0].ip_configuration[0].private_ip_address : null }
+output "bastion_name" { value = var.bastion_enabled ? azurerm_bastion_host.main[0].name : null }
+output "vm_private_ip" { value = var.vm_enabled ? azurerm_network_interface.vm[0].private_ip_address : null }
+output "ai_account_id" { value = azapi_resource.foundry_account.id }
+output "ai_account_endpoint" { value = azapi_resource.foundry_account.output.properties.endpoint }
+output "project_name" { value = module.project.project_name }
+output "project_id" { value = module.project.project_id }
+output "project_principal_id" { value = module.project.principal_id }
+output "project_workspace_id" { value = module.project.workspace_id }
+output "capability_host_name" { value = module.project.capability_host_name }
+output "log_analytics_workspace_id" { value = azurerm_log_analytics_workspace.main.id }
+output "acr_id" { value = var.container_registry_enabled ? azurerm_container_registry.main[0].id : null }
+output "acr_login_server" { value = var.container_registry_enabled ? azurerm_container_registry.main[0].login_server : null }

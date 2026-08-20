@@ -1,0 +1,12 @@
+resource_group_name          = "replace-existing-rg"
+location                     = "australiaeast"
+vnet_name                    = "replace-existing-vnet"
+integration_subnet_name      = "func-integration-subnet"
+integration_subnet_prefix    = "192.168.5.0/24"
+private_endpoint_subnet_name = "pe"
+base_name                    = "functestd001"
+
+tags = {
+  managedBy = "terraform"
+  workload  = "foundry-tool-server"
+}

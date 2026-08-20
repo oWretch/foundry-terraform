@@ -1,0 +1,23 @@
+location                    = "australiaeast"
+existing_account_name       = "replace-aiservices-name"
+account_resource_group_name = "replace-account-rg"
+account_subscription_id     = "00000000-0000-0000-0000-000000000000"
+
+project_name         = "project2"
+project_suffix       = "d001"
+project_display_name = "project2 (dev)"
+project_description  = "Second AI Foundry project sharing the same account"
+capability_host_name = "caphostproj"
+
+existing_ai_search_name   = "replace-search-name"
+search_resource_group_name = "replace-search-rg"
+search_subscription_id     = "00000000-0000-0000-0000-000000000000"
+ai_search_location         = "australiaeast"
+
+existing_storage_name       = "replacestorage"
+storage_resource_group_name = "replace-storage-rg"
+storage_subscription_id     = "00000000-0000-0000-0000-000000000000"
+
+existing_cosmosdb_name       = "replace-cosmos-name"
+cosmosdb_resource_group_name = "replace-cosmos-rg"
+cosmosdb_subscription_id     = "00000000-0000-0000-0000-000000000000"

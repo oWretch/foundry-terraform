@@ -1,0 +1,9 @@
+output "project_name" { value = azapi_resource.project.name }
+output "project_id" { value = azapi_resource.project.id }
+output "principal_id" { value = local.principal_id }
+output "workspace_id" { value = local.workspace_id }
+output "workspace_guid" { value = local.workspace_guid }
+output "capability_host_name" { value = azapi_resource.capability_host.name }
+output "cosmos_connection_name" { value = local.cosmos_connection }
+output "storage_connection_name" { value = local.storage_connection }
+output "search_connection_name" { value = local.search_connection }
