@@ -6,7 +6,7 @@ locals {
 }
 
 resource "azapi_resource" "project" {
-  type      = "Microsoft.CognitiveServices/accounts/projects@2025-04-01-preview"
+  type      = "Microsoft.CognitiveServices/accounts/projects@2026-05-01"
   name      = var.project_name
   parent_id = var.account_id
   location  = var.location
@@ -26,13 +26,13 @@ resource "azapi_resource" "project" {
 }
 
 resource "azapi_resource" "cosmos_connection" {
-  type      = "Microsoft.CognitiveServices/accounts/projects/connections@2025-04-01-preview"
+  type      = "Microsoft.CognitiveServices/accounts/projects/connections@2026-05-01"
   name      = local.cosmos_connection
   parent_id = azapi_resource.project.id
   body = {
     properties = {
       authType = "AAD"
-      category = "CosmosDB"
+      category = "CosmosDb"
       target   = var.cosmosdb_endpoint
       metadata = {
         ApiType    = "Azure"
@@ -44,7 +44,7 @@ resource "azapi_resource" "cosmos_connection" {
 }
 
 resource "azapi_resource" "storage_connection" {
-  type      = "Microsoft.CognitiveServices/accounts/projects/connections@2025-04-01-preview"
+  type      = "Microsoft.CognitiveServices/accounts/projects/connections@2026-05-01"
   name      = local.storage_connection
   parent_id = azapi_resource.project.id
   body = {
@@ -62,7 +62,7 @@ resource "azapi_resource" "storage_connection" {
 }
 
 resource "azapi_resource" "search_connection" {
-  type      = "Microsoft.CognitiveServices/accounts/projects/connections@2025-04-01-preview"
+  type      = "Microsoft.CognitiveServices/accounts/projects/connections@2026-05-01"
   name      = local.search_connection
   parent_id = azapi_resource.project.id
   body = {

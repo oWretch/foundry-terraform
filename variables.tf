@@ -204,7 +204,7 @@ variable "project_capability_host_name" {
 
 variable "model_name" {
   type    = string
-  default = "gpt-4o-mini"
+  default = "gpt-4.1-mini"
 }
 
 variable "model_format" {
@@ -214,7 +214,7 @@ variable "model_format" {
 
 variable "model_version" {
   type    = string
-  default = "2024-07-18"
+  default = "2025-04-14"
 }
 
 variable "model_sku_name" {

@@ -13,6 +13,10 @@ terraform {
 }
 
 provider "azurerm" {
+  resource_providers_to_register = [
+    "Microsoft.App",
+    "Microsoft.ContainerService",
+  ]
   features {}
   subscription_id = var.account_subscription_id
 }
@@ -24,7 +28,8 @@ provider "azurerm" {
 }
 
 provider "azurerm" {
-  alias = "storage"
+  alias               = "storage"
+  storage_use_azuread = true
   features {}
   subscription_id = var.storage_subscription_id
 }

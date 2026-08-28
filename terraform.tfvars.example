@@ -2,8 +2,8 @@ location = "australiaeast"
 prefix   = "aifoundrytf"
 
 # Keep empty for a deterministic subscription/resource-group-derived suffix.
-random_suffix      = ""
-resource_group_name = ""
+random_suffix      = "ec74"
+resource_group_name = "rg-foundry-suncorp-ec74"
 
 tags = {
   lab        = "foundry-terraform"
@@ -13,8 +13,8 @@ tags = {
 }
 
 hub_vnet_prefix   = "10.100.0.0/23"
-vm_vnet_prefix    = "10.10.10.0/23"
-aiapp_vnet_prefix = "10.10.20.0/23"
+vm_vnet_prefix    = "10.100.10.0/23"
+aiapp_vnet_prefix = "10.100.20.0/23"
 
 firewall_enabled           = true
 firewall_sku_tier          = "Basic"
@@ -37,8 +37,8 @@ project_display_name           = "network secured agent project"
 project_capability_host_name   = "caphostproj"
 network_injection_enabled      = true
 
-model_name     = "gpt-4o-mini"
+model_name     = "gpt-4.1-mini"
 model_format   = "OpenAI"
-model_version  = "2024-07-18"
+model_version  = "2025-04-14"
 model_sku_name = "GlobalStandard"
 model_capacity = 30

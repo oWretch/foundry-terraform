@@ -1,5 +1,5 @@
 resource "azapi_resource" "foundry_account" {
-  type      = "Microsoft.CognitiveServices/accounts@2025-04-01-preview"
+  type      = "Microsoft.CognitiveServices/accounts@2026-05-01"
   name      = local.ai_services_name
   parent_id = azurerm_resource_group.main.id
   location  = azurerm_resource_group.main.location
@@ -35,10 +35,16 @@ resource "azapi_resource" "foundry_account" {
 
   response_export_values = ["properties.endpoint", "identity.principalId"]
   depends_on             = [azurerm_cosmosdb_account.foundry, azurerm_search_service.foundry, azurerm_storage_account.foundry]
+
+  # network-injected agent capability host provisioning can exceed the 30m default
+  timeouts {
+    create = "60m"
+    update = "60m"
+  }
 }
 
 resource "azapi_resource" "model_deployment" {
-  type      = "Microsoft.CognitiveServices/accounts/deployments@2025-04-01-preview"
+  type      = "Microsoft.CognitiveServices/accounts/deployments@2026-05-01"
   name      = var.model_name
   parent_id = azapi_resource.foundry_account.id
 
@@ -80,4 +86,7 @@ module "project" {
   storage_blob_endpoint  = azurerm_storage_account.foundry.primary_blob_endpoint
   storage_location       = azurerm_storage_account.foundry.location
   unique_connection_salt = ""
+
+  # capability host connects to these over private link; wait for PEs + DNS records to exist first
+  depends_on = [azurerm_private_endpoint.foundry]
 }

@@ -14,6 +14,12 @@ terraform {
 }
 
 provider "azurerm" {
+  storage_use_azuread = true
+  resource_providers_to_register = [
+    "Microsoft.App",
+    "Microsoft.CognitiveServices",
+    "Microsoft.ContainerService",
+  ]
   features {}
 }
 

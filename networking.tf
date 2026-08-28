@@ -53,7 +53,8 @@ resource "azurerm_subnet" "agents" {
   delegation {
     name = "Microsoft.App.environments"
     service_delegation {
-      name = "Microsoft.App/environments"
+      name    = "Microsoft.App/environments"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
     }
   }
 }
@@ -67,7 +68,8 @@ resource "azurerm_subnet" "mcp" {
   delegation {
     name = "Microsoft.App.environments"
     service_delegation {
-      name = "Microsoft.App/environments"
+      name    = "Microsoft.App/environments"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
     }
   }
 }
@@ -128,5 +130,17 @@ resource "azurerm_subnet_route_table_association" "vm" {
 resource "azurerm_subnet_route_table_association" "pe" {
   count          = var.firewall_enabled ? 1 : 0
   subnet_id      = azurerm_subnet.pe.id
+  route_table_id = azurerm_route_table.spokes[0].id
+}
+
+resource "azurerm_subnet_route_table_association" "agents" {
+  count          = var.firewall_enabled ? 1 : 0
+  subnet_id      = azurerm_subnet.agents.id
+  route_table_id = azurerm_route_table.spokes[0].id
+}
+
+resource "azurerm_subnet_route_table_association" "mcp" {
+  count          = var.firewall_enabled ? 1 : 0
+  subnet_id      = azurerm_subnet.mcp.id
   route_table_id = azurerm_route_table.spokes[0].id
 }

@@ -39,7 +39,7 @@ resource "azurerm_role_assignment" "cosmosdb_operator" {
 }
 
 resource "azapi_resource" "capability_host" {
-  type                      = "Microsoft.CognitiveServices/accounts/projects/capabilityHosts@2025-04-01-preview"
+  type                      = "Microsoft.CognitiveServices/accounts/projects/capabilityHosts@2026-05-01"
   name                      = var.capability_host_name
   parent_id                 = azapi_resource.project.id
   schema_validation_enabled = false
